@@ -1,0 +1,15 @@
+structure: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@{date}/{apiVersion}/{endpoint}.min.json
+structure: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@{date}/{apiVersion}/{endpoint}.json
+
+# how to use:
+- {date}: latest or YYYY-MM-DD
+- {apiVersion}: v1
+- {endpoint}: currencies and currencies/{countryCode}
+- {countryCode}: inr, usd or eur
+
+# for all available currencies:
+- example: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json
+
+# for specific countries currency:
+- structure: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/{countryCode}.json
+- example: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/inr.json
