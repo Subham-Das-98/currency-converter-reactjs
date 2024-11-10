@@ -54,7 +54,7 @@ function App() {
 
   return (
     <>
-      <div className="h-dvh grid place-content-center">
+      <div className="h-dvh grid place-content-center sm:px-2 md:px-0">
         <div className="relative">
           <div className="company">
             <h1 className="uppercase text-center">currency converter </h1>
@@ -63,7 +63,7 @@ function App() {
             </h2>
           </div>
 
-          <div className="mt-2">
+          <div className="mt-2 mb-6 md:mb-0">
             <InputBox
               label="from"
               amount={amount}
@@ -75,7 +75,7 @@ function App() {
           </div>
 
           <div
-            className="absolute top-1/2 -right-9 translate-y-1.5 w-max cursor-pointer"
+            className="relative md:absolute md:top-1/2 md:-right-9 md:translate-y-1.5 w-max cursor-pointer mx-auto"
             onClick={swap}
           >
             <span className="relative text-2xl text-gray-500 py-3 pl-1.5 bg-gray-800 rounded-tl-md rounded-bl-md hover:text-emerald-500">
@@ -86,7 +86,7 @@ function App() {
             </span>
           </div>
 
-          <div className="mt-2">
+          <div className="mt-6 md:mt-2">
             <InputBox
               label="to"
               amount={convertedAmount}

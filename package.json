@@ -1,4 +1,5 @@
 {
+  "homepage": "https://subham-das-98.github.io/currency-converter-reactjs",
   "name": "currency_converter",
   "private": true,
   "version": "0.0.0",
@@ -10,8 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
