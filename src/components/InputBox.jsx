@@ -15,7 +15,7 @@ function InputBox(
   return (
     <>
       <form action="" onSubmit={(e) => {e.preventDefault()}} name="currency-form">
-        <div className="bg-gray-700 w-96 mx-auto rounded-lg px-3 py-3">
+        <div className="bg-gray-700 w-full max-w-96 mx-auto rounded-lg px-3 py-3">
           <div className="flex justify-between">
             <div className="cursor-pointer">
               <label htmlFor="form-amount-input">{label.toUpperCase()}</label>
