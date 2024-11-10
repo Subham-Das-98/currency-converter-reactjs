@@ -54,7 +54,7 @@ function App() {
 
   return (
     <>
-      <div className="h-dvh grid place-content-center w-max mx-auto px-1">
+      <div className="h-dvh grid place-content-center w-min mx-auto px-1">
         <div className="relative">
           <div className="company">
             <h1 className="uppercase text-center">currency converter </h1>
