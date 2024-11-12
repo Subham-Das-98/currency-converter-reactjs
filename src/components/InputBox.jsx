@@ -7,6 +7,7 @@ function InputBox(
     onAmountChange,
     countryCode = "usd",
     countryCodeOptions = [],
+    currencyCountryMap = {},
     onCountryCodeChange,
     amountInputDisabled = false,
     countryCodeSelectOptionDisabled = false
@@ -38,11 +39,19 @@ function InputBox(
               className="outline-none cursor-pointer px-4 py-1.5 rounded-md bg-gray-800"
               value={countryCode}
               onChange={(e) => onCountryCodeChange && onCountryCodeChange(e.target.value)}
+              onClick={(e) => {
+                const options = e.target.options;
+                Array.from(options).forEach(option => option.textContent = option.getAttribute("data-full-text"));
+              }}
+              onMouseLeave={(e) => {
+                const options = e.target.options;
+                Array.from(options).forEach(option => option.textContent = option.value.toUpperCase());
+              }}
               disabled={countryCodeSelectOptionDisabled}
             >
               {
                 countryCodeOptions.map((code) => 
-                  <option key={code} value={code}>{code.toUpperCase()}</option>
+                  <option key={code} value={code} data-full-text={`${currencyCountryMap[code]}(${code.toUpperCase()})`}>{code.toUpperCase()}</option>
                 )
               }
             </select>

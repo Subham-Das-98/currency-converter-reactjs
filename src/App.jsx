@@ -8,7 +8,7 @@ function App() {
   const [fromCountryCode, setFromCountryCode] = useState("usd");
   const [toCountryCode, setToCountryCode] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(1);
-  const [data, date, loadingStatus] = useCurrencyInfo(fromCountryCode);
+  const [data, date, currencyCountryMap, loadingStatus] = useCurrencyInfo(fromCountryCode);
 
   function convertCurrency() {
     if (amount && data[toCountryCode]) {
@@ -49,6 +49,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(currencyCountryMap)
     convertCurrency();
   }, [data, amount, fromCountryCode, toCountryCode]);
 
@@ -70,6 +71,7 @@ function App() {
               onAmountChange={(amount) => setAmount(amount)}
               countryCode={fromCountryCode}
               countryCodeOptions={Object.keys(data)}
+              currencyCountryMap={currencyCountryMap}
               onCountryCodeChange={(code) => setFromCountryCode(code)}
             />
           </div>
@@ -93,6 +95,7 @@ function App() {
               onAmountChange={(amount) => setConvertedAmount(amount)}
               countryCode={toCountryCode}
               countryCodeOptions={Object.keys(data)}
+              currencyCountryMap={currencyCountryMap}
               onCountryCodeChange={(code) => setToCountryCode(code)}
               amountInputDisabled
             />
