@@ -48,8 +48,17 @@ function App() {
     setToCountryCode(fromCountryCode);
   }
 
+  function onSelectOpenHandler(e) {
+    const options = e.target.options;
+    Array.from(options).forEach(option => option.textContent = option.getAttribute("data-full-text"));
+  }
+
+  function onSelectCloseHandler(e) {
+    const options = e.target.options;
+    Array.from(options).forEach(option => option.textContent = option.value.toUpperCase());
+  }
+
   useEffect(() => {
-    console.log(currencyCountryMap)
     convertCurrency();
   }, [data, amount, fromCountryCode, toCountryCode]);
 
@@ -73,6 +82,8 @@ function App() {
               countryCodeOptions={Object.keys(data)}
               currencyCountryMap={currencyCountryMap}
               onCountryCodeChange={(code) => setFromCountryCode(code)}
+              onSelectOpenHandler={onSelectOpenHandler}
+              onSelectCloseHandler={onSelectCloseHandler}
             />
           </div>
 
@@ -97,6 +108,8 @@ function App() {
               countryCodeOptions={Object.keys(data)}
               currencyCountryMap={currencyCountryMap}
               onCountryCodeChange={(code) => setToCountryCode(code)}
+              onSelectOpenHandler={onSelectOpenHandler}
+              onSelectCloseHandler={onSelectCloseHandler}
               amountInputDisabled
             />
           </div>

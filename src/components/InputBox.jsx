@@ -10,7 +10,9 @@ function InputBox(
     currencyCountryMap = {},
     onCountryCodeChange,
     amountInputDisabled = false,
-    countryCodeSelectOptionDisabled = false
+    countryCodeSelectOptionDisabled = false,
+    onSelectOpenHandler,
+    onSelectCloseHandler
   }
 ) {
   return (
@@ -40,12 +42,13 @@ function InputBox(
               value={countryCode}
               onChange={(e) => onCountryCodeChange && onCountryCodeChange(e.target.value)}
               onClick={(e) => {
-                const options = e.target.options;
-                Array.from(options).forEach(option => option.textContent = option.getAttribute("data-full-text"));
+                onSelectOpenHandler && onSelectOpenHandler(e);
               }}
               onMouseLeave={(e) => {
-                const options = e.target.options;
-                Array.from(options).forEach(option => option.textContent = option.value.toUpperCase());
+                onSelectCloseHandler && onSelectCloseHandler(e);
+              }}
+              onPointerOut={(e) => {
+                onSelectCloseHandler && onSelectCloseHandler(e);
               }}
               disabled={countryCodeSelectOptionDisabled}
             >
